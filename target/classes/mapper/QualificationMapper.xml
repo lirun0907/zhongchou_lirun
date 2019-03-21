@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.qualification.mapper.QuaMapper">
+    <!--查询所有-->
+    <select id="selectAllQua" resultType="com.xian.qualification.pojo.Qualification">
+        select * from qualification
+    </select>
+    <!--增加资质名称-->
+    <insert id="addQua" parameterType="com.xian.qualification.pojo.Qualification">
+        insert into qualification values(SEQ_PK_QUAID.nextval,#{quaName})
+    </insert>
+    <!--根据id查询一个资质名称-->
+    <select id="selectQuaById" resultType="com.xian.qualification.pojo.Qualification" parameterType="Integer">
+        select * from qualification where quaid=#{quaId}
+    </select>
+    <!--根据id修改资质名称-->
+    <update id="updateQuaById" parameterType="com.xian.qualification.pojo.Qualification">
+        update qualification
+        <set>
+            <if test="quaName!=null">quaname=#{quaName}</if>
+        </set>
+        where quaid=#{quaId}
+    </update>
+    <!--根据id删除资质名称-->
+    <delete id="deleteQuaById" parameterType="Integer">
+        delete from qualification where quaid=#{quaId}
+    </delete>
+    <!--模糊查询-->
+    <select id="selectQuaBy" parameterType="com.xian.qualification.pojo.Qualification" resultType="com.xian.qualification.pojo.Qualification">
+        SELECT * FROM qualification
+        <where>
+            <if test="quaName!=null">or quaname like concat(concat('%',#{quaName}),'%')</if>
+        </where>
+    </select>
+</mapper>

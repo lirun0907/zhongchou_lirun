@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!--配置业务控制器的 扫描路径 -->
+	<context:component-scan base-package="com.xian.*.controller"></context:component-scan>
+	<!-- 静态资源 处理 -->
+	<mvc:default-servlet-handler />
+	<!--配置注解驱动 -->
+	<mvc:annotation-driven>
+		
+	</mvc:annotation-driven>
+	<!--配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<!-- 文件上传配置 -->
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 上传的最大限制 -->
+		<property name="maxUploadSize" value="209715200" />
+		<!-- 默认编码 -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<!-- 上传文件的解析 -->
+		<property name="resolveLazily" value="true" />
+	</bean>
+	<!--解决前端向后台传值的乱码问题-->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+
+	</mvc:annotation-driven>
+	<!--配置拦截器-->
+	<!--<mvc:interceptors>
+        &lt;!&ndash;登录拦截器&ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/*.html"/>
+            <bean class="com.xian.userinfo.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+</beans>

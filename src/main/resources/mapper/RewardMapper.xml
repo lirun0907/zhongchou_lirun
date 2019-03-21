@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.reward.mapper.RewardMapper">
+    <!--添加-->
+    <insert id="addReward" parameterType="com.xian.reward.pojo.Reward">
+        insert into reward values (SEQ_PK_REWARDID.nextval,#{applyProjectName},#{rewardType},#{payMoney},#{rewardContent},#{explainPhoto},#{rewardNumber},#{limitNumber},#{freight},#{invoice},#{rewardTime})
+    </insert>
+    <!--查询-->
+    <select id="selectAllReward" parameterType="String" resultType="com.xian.reward.pojo.Reward">
+        select * from reward where applyProjectName=#{applyProjectName}
+    </select>
+</mapper>

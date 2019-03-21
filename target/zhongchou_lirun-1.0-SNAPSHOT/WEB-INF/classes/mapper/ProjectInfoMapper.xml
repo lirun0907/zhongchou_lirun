@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.project.mapper.ProjectMapper">
+    <!--查询所有-->
+    <select id="selectAllProject" resultType="com.xian.project.pojo.ProjectInfo">
+        select * from project
+    </select>
+    <!--增加项目类型-->
+    <insert id="addProject" parameterType="com.xian.project.pojo.ProjectInfo">
+        insert into project values(SEQ_PK_PROJECTID.nextval,#{projectName},#{projectInfo})
+    </insert>
+    <!--根据id查询一个项目类型-->
+    <select id="selectProjectById" resultType="com.xian.project.pojo.ProjectInfo" parameterType="Integer">
+        select * from project where projectid=#{projectId}
+    </select>
+    <!--根据id修改项目类型-->
+    <update id="updateProjectById" parameterType="com.xian.project.pojo.ProjectInfo">
+        update project
+        <set>
+            <if test="projectName!=null">projectname=#{projectName},</if>
+            <if test="projectInfo!=null">projectinfo=#{projectInfo}</if>
+        </set>
+        where projectid = #{projectId}
+    </update>
+    <!--根据id删除项目类型-->
+    <delete id="deleteProjectById" parameterType="Integer">
+        delete from project where projectid=#{projectId}
+    </delete>
+    <!--模糊查询-->
+    <select id="selectProjectBy" parameterType="com.xian.project.pojo.ProjectInfo" resultType="com.xian.project.pojo.ProjectInfo">
+        SELECT * FROM project
+        <where>
+            <if test="projectName!=null">or projectname like concat(concat('%',#{projectName}),'%')</if>
+            <if test="projectInfo!=null">or projectinfo like concat(concat('%',#{projectInfo}),'%')</if>
+        </where>
+    </select>
+</mapper>

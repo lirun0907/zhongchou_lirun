@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.userinfo.mapper.UserInfoMapper">
+
+    <!--查询所有-->
+    <select id="selectAllUserInfo" resultType="com.xian.userinfo.pojo.UserInfo">
+        SELECT * FROM UserInfo
+    </select>
+    <!--添加用户-->
+    <insert id="addUserInfo" parameterType="com.xian.userinfo.pojo.UserInfo">
+        insert into UserInfo values(SEQ_PK_USERINFOID.nextval,#{account},#{userName},#{email},#{password},#{status},#{type})
+    </insert>
+    <!--修改用户-->
+    <update id="updateUserInfoById" parameterType="com.xian.userinfo.pojo.UserInfo">
+        update UserInfo set username=#{userName},userpass = #{userPass},status=#{status},type="type" where userid = #{userId}
+    </update>
+    <!--删除用户-->
+    <delete id="deleteUserInfoById" parameterType="int">
+        delete from UserInfo where userid = #{userId}
+    </delete>
+    <!--动态查询用户(if)-->
+    <select id="selectUserInfoBy" parameterType="com.xian.userinfo.pojo.UserInfo" resultType="com.xian.userinfo.pojo.UserInfo">
+        SELECT * FROM UserInfo
+        <where>
+            <if test="account!=null">or account like concat(concat('%',#{account}),'%')</if>
+            <if test="userName!=null">or username like concat(concat('%',#{userName}),'%')</if>
+            <if test="email!=null">or email like concat(concat('%',#{email}),'%')</if>
+            <if test="password!=null">or password like concat(concat('%',#{password}),'%')</if>
+        </where>
+    </select>
+    <!--if+where语句(查询)-->
+    <select id="selectUserInfoBy1" parameterType="com.xian.userinfo.pojo.UserInfo" resultType="com.xian.userinfo.pojo.UserInfo">
+        SELECT * FROM UserInfo
+        <where>
+            <if test="userId!=null">and userid=#{userId}</if>
+            <if test="account!=null">and account=#{account}</if>
+            <if test="userName!=null">and username=#{userName}</if>
+            <if test="email!=null">and email=#{email}</if>
+            <if test="password!=null">and password=#{password}</if>
+            <if test="status!=null">and status=#{status}</if>
+            <if test="type!=null">and type=#{type}</if>
+        </where>
+    </select>
+    <!--if+set语句(修改)-->
+    <update id="updateUserInfoBy" parameterType="com.xian.userinfo.pojo.UserInfo">
+        update UserInfo
+        <set>
+            <if test="userId!=null">userid=#{userId},</if>
+            <if test="account!=null">account=#{account},</if>
+            <if test="userName!=null">username=#{userName},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="status!=null">status=#{status},</if>
+            <if test="type!=null">type=#{type}</if>
+        </set>
+        where userid=#{userId}
+    </update>
+    <!--查询(choose-when-otherwise)-->
+    <select id="selectUserInfoByChoose" parameterType="com.xian.userinfo.pojo.UserInfo" resultType="com.xian.userinfo.pojo.UserInfo">
+        SELECT * FROM UserInfo
+        <where>
+            <choose>
+                <when test="userId!=null">userid=#{userId}</when>
+                <when test="userName!=null">username=#{userName}</when>
+                <when test="userPass!=null">and userpass=#{userPass}</when>
+                <otherwise>1=1</otherwise>
+            </choose>
+        </where>
+    </select>
+
+</mapper>

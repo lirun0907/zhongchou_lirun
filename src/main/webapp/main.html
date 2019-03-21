@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="GB18030">
+<head>
+	<meta charset="GB18030">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<style>
+		.tree li {
+			list-style-type: none;
+			cursor:pointer;
+		}
+		.tree-closed {
+			height : 40px;
+		}
+		.tree-expanded {
+			height : auto;
+		}
+	</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<div><a class="navbar-brand" style="font-size:32px;" href="#">众筹平台 - 控制面板</a></div>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li style="padding-top:8px;">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default btn-success dropdown-toggle" data-toggle="dropdown">
+							<i class="glyphicon glyphicon-user"></i> <span id="account">张三</span> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><i class="glyphicon glyphicon-cog"></i> 个人设置</a></li>
+							<li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
+							<li class="divider"></li>
+							<li><a href="index.html"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
+						</ul>
+					</div>
+				</li>
+				<li style="margin-left:10px;padding-top:8px;">
+					<button type="button" class="btn btn-default btn-danger">
+						<span class="glyphicon glyphicon-question-sign"></span> 帮助
+					</button>
+				</li>
+			</ul>
+			<form class="navbar-form navbar-right">
+				<input type="text" class="form-control" placeholder="查询">
+			</form>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<div class="tree">
+				<ul style="padding-left:0px;" class="list-group">
+					<li class="list-group-item tree-closed" >
+						<a href="main.html"><i class="glyphicon glyphicon-dashboard"></i> 控制面板</a>
+					</li>
+					<!--左边菜单-->
+					<div id="treeDemo">
+
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">控制面板</h1>
+
+			<div class="row placeholders">
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="script/docs.min.js"></script>
+<script src="ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript">
+	var myTree;
+
+	var setting = {
+		check : {
+			enable : true
+		},
+		view: {
+			selectedMulti: false,
+			addDiyDom: function(treeId, treeNode){
+				var icoObj = $("#" + treeNode.tId + "_ico"); // tId = permissionTree_1, $("#permissionTree_1_ico")
+				if ( treeNode.icon ) {
+					icoObj.removeClass("button ico_docu ico_open").addClass("fa fa-fw " + treeNode.icon).css("background","");
+				}
+			},
+		},
+		async: {
+			enable: true,
+			url:"tree.txt",
+			autoParam:["id", "name=n", "level=lv"]
+		},
+		callback: {
+			onClick : function(event, treeId, json) {
+
+			}
+		}
+	};
+	var userId=window.location.search.split("?")[1].split("=")[1];
+	alert(userId);
+
+	$(function () {
+		$.ajax({
+			url: "selectUser_Role_Menu",
+			type: "post",
+			async: false,
+			// data: {userId: 12},
+			success: function (res) {
+				var tree = JSON.stringify(res);
+				console.log(tree);
+				var str = "";
+				$.each(res, function (k, v) {
+					if (v.url == null) {
+						str += "<li class=\"list-group-item tree-closed\"><span><i class='" + v.icon + "'></i>" + v.name + "<span class='badge'style=\"float:right\"></span></span>";
+						str += "<ul style=\"margin-top:10px;display:none;\">";
+						if (v.children != null) {
+							$.each(v.children, function (kk, vv) {
+								str += "<li style=\"height:30px;\"><a href=\"" + vv.url + "\"><i class=\"" + vv.icon + "\"></i>" + vv.name + "</a></li>"
+							});
+						}
+						str += "</ul></li>";
+					}else {
+						str += "<li class=\"list-group-item tree-closed\"><a href=\""+v.url+"\"><i class='" + v.icon + "'></i>" + v.name + "</a></li>";
+					}
+
+				});
+				$("#treeDemo").html(str);
+			},
+			error: function () {
+				alert("访问失败!");
+			}
+		});
+
+		$(".list-group-item").click(function(){
+			// jquery对象的回调方法中的this关键字为DOM对象
+			// $(DOM) ==> JQuery
+			if ( $(this).find("ul") ) { // 3 li
+				$(this).toggleClass("tree-closed");
+				if ( $(this).hasClass("tree-closed") ) {
+					$("ul", this).hide("fast");
+				} else {
+					$("ul", this).show("fast");
+				}
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

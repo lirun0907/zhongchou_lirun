@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.realname.mapper.RealNameMapper">
+    <insert id="addRealName" parameterType="com.xian.realname.pojo.RealName">
+        insert into REALNAMESYSTEM values (SEQ_PK_REALNAMEID.nextval,#{processName},#{account},#{realName,jdbcType=VARCHAR},#{idCard},#{tel},#{idPhoto},#{status})
+    </insert>
+    <select id="getAllRealName" resultType="com.xian.realname.pojo.RealName">
+        select * from REALNAMESYSTEM
+    </select>
+    <!--根据id修改状态-->
+    <update id="updateRealNameById" parameterType="com.xian.realname.pojo.RealName">
+        update REALNAMESYSTEM set status=#{status} where realNameId=#{realNameId}
+    </update>
+    <!--根据account查询资质认真状态-->
+    <select id="selectStatusByAccount" resultType="com.xian.realname.pojo.RealName" parameterType="String">
+        select * from REALNAMESYSTEM where account=#{account}
+    </select>
+</mapper>

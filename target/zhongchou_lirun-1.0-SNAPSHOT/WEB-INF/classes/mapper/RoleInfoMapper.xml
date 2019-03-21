@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.roleinfo.mapper.RoleInfoMapper">
+    <!--查询所有角色-->
+    <select id="selectAllRoleInfo" resultType="com.xian.roleinfo.pojo.RoleInfo">
+        SELECT * FROM roleinfo
+    </select>
+    <!--添加角色-->
+    <insert id="addRoleInfo" parameterType="com.xian.roleinfo.pojo.RoleInfo">
+        insert into RoleInfo values(SEQ_PK_ROLEINFOID.nextval,#{roleName},#{status})
+    </insert>
+    <!--修改角色-->
+    <update id="updateRoleInfoById" parameterType="com.xian.roleinfo.pojo.RoleInfo">
+        update RoleInfo set roleame=#{roleName},status=#{status} where roleid = #{roleId}
+    </update>
+    <!--删除角色-->
+    <delete id="deleteRoleInfoById" parameterType="int">
+        delete from RoleInfo where roleid = #{roleId}
+    </delete>
+    <!--根据roleId删除role_menu中间表中的信息-->
+    <delete id="deleteRole_MenuByRoleID" parameterType="int">
+        delete from role_menu where roleid=#{roleId}
+    </delete>
+    <!--动态查询角色(if)-->
+    <select id="selectRoleInfoBy" parameterType="com.xian.roleinfo.pojo.RoleInfo" resultType="com.xian.roleinfo.pojo.RoleInfo">
+        SELECT * FROM RoleInfo
+        <where>
+            <if test="roleName!=null">or rolename like concat(concat('%',#{roleName}),'%')</if>
+        </where>
+    </select>
+    <!--if+where语句(查询)-->
+    <select id="selectRoleInfoBy1" parameterType="com.xian.roleinfo.pojo.RoleInfo" resultType="com.xian.roleinfo.pojo.RoleInfo">
+        SELECT * FROM RoleInfo
+        <where>
+            <if test="roleId!=null">and roleid=#{roleId}</if>
+            <if test="roleName!=null">and rolename=#{roleName}</if>
+            <if test="status!=null">and status=#{status}</if>
+        </where>
+    </select>
+    <!--if+set语句(修改)-->
+    <update id="updateRoleInfoBy" parameterType="com.xian.roleinfo.pojo.RoleInfo">
+        update RoleInfo
+        <set>
+            <if test="roleName!=null">rolename=#{roleName},</if>
+            <if test="status!=null">status=#{status}</if>
+        </set>
+        where roleid=#{roleId}
+    </update>
+
+    <!--两表联查被选中的角色-->
+    <select id="selectUserinfoSelected" parameterType="java.lang.Integer" resultType="com.xian.roleinfo.pojo.RoleInfo">
+        select r.* from roleinfo r, userinfo_roleinfo ur where r.roleid=ur.roleid and ur.userid=#{userid} and r.status!='失效'
+    </select>
+    <!--两表联查没有被选中的角色-->
+    <select id="selectUserinfoNotSelected" parameterType="java.lang.Integer" resultType="com.xian.roleinfo.pojo.RoleInfo">
+       select * from roleinfo where rolename not in(select rolename from roleinfo r, userinfo_roleinfo ur where r.roleid=ur.roleid and ur.userid=#{userid})and status!='失效'
+    </select>
+
+    <!--根据userId删除userinfo_roleinfo中间表中的信息-->
+    <delete id="deleteUser_RoleByUserId" parameterType="java.lang.Integer">
+        delete from userinfo_roleinfo where userid=#{value }
+    </delete>
+    <!--给中间表userinfo_roleinfo添加数据-->
+    <insert id="addUserinfo_Roleinfo" parameterType="com.xian.roleinfo.vo.UserRoleVo">
+        insert into userinfo_roleinfo(URID,USERID,ROLEID)
+        select SEQ_PK_URID.nextval,cd.* from(
+        <foreach collection="roleIds" item="roleId" separator="union all">
+            select #{userId,jdbcType=INTEGER},#{roleId,jdbcType=INTEGER} from dual
+        </foreach>
+        )cd
+    </insert>
+</mapper>

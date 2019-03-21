@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xian.menu.mapper.MenuMapper">
+    <!--二级菜单-->
+    <!--<resultMap id="MenuMap" type="com.xian.menu.dto.MenuDto">
+        <id column="MENUID" property="id"></id>
+        <result column="MENUNAME" property="name"></result>
+        <result column="MENUURL" property="url"></result>
+        <result column="MENUICON" property="icon"></result>
+        <result column="CHECKED" property="checked"></result>
+        <collection property="children" ofType="com.xian.menu.dto.MenuDto">
+            <id column="m2id" property="id"></id>
+            <result column="m2name" property="name"></result>
+            <result column="m2jumpurl" property="url"></result>
+            <result column="m2iconurl" property="icon"></result>
+            <result column="CHECKED" property="checked"></result>
+        </collection>
+    </resultMap>-->
+    <!--多级菜单(角色授权中间表)-->
+    <resultMap id="MenuMap" type="com.xian.menu.dto.MenuDto">
+        <id column="MENUID" property="id"></id>
+        <result column="MENUNAME" property="name"></result>
+        <result column="MENUURL" property="url"></result>
+        <result column="MENUICON" property="icon"></result>
+        <collection property="children" ofType="com.xian.menu.dto.MenuDto" column="{parentid=menuid,roleid=roleid}"
+                    select="findMenuByParentId"></collection>
+    </resultMap>
+
+    <!--三级菜单(角色授权中间表)-->
+    <select id="selectAllMenu"  parameterType="java.lang.Integer" resultMap="MenuMap">
+        select m.*,decode(rm.menuid,null,'false','true') checked ,#{roleid} roleid from menu m
+	    left join role_menu rm on rm.roleid=#{roleid} and m.menuid=rm.menuid where parentid=0
+    </select>
+
+    <select id="findMenuByParentId" parameterType="map" resultMap="MenuMap">
+        select m.*,decode(rm.menuid,null,'false','true') checked ,#{roleid} roleid from menu m
+	    left join role_menu rm on rm.roleid=#{roleid} and m.menuid=rm.menuid where parentid=${parentid}
+    </select>
+    <!--菜单维护(单表)-->
+    <resultMap id="MenuMapOnly" type="com.xian.menu.dto.MenuDto">
+        <id column="MENUID" property="id"></id>
+        <result column="MENUNAME" property="name"></result>
+        <result column="MENUURL" property="url"></result>
+        <result column="MENUICON" property="icon"></result>
+        <collection property="children" ofType="com.xian.menu.dto.MenuDto" column="{parentid=menuid}"
+                    select="findMenuByParentIdOnly"></collection>
+    </resultMap>
+    <!--查询所有菜单-->
+    <!--二级菜单
+    <select id="selectAllMenu"  parameterType="java.lang.Integer" resultMap="MenuMap">
+        SELECT * FROM menu
+        select tab1.*,decode(to_char(roleid),'','false','true') checked from (select m1.*,m2.menuid m2id,m2.menuname m2name,m2.jumpurl m2jumpurl,m2.parentid m2parentid,m2.iconurl m2iconurl from menu m1,menu m2 where m1.menuid=m2.parentid) tab1
+        left join role_menu rm on tab1.menuid=rm.menuid and rm.roleid=#{roleId}
+    </select>-->
+
+   <!-- 三级菜单初级版(单表)-->
+    <select id="selectAllMenuOnly" resultMap="MenuMapOnly">
+      select * from menu where PARENTID=0
+    </select>
+    <select id="findMenuByParentIdOnly" parameterType="map" resultMap="MenuMapOnly">
+        SELECT * from menu where PARENTID = #{parentid}
+    </select>
+
+
+
+    <!--添加菜单-->
+    <insert id="addMenu" parameterType="com.xian.menu.pojo.Menu">
+        insert into menu values(SEQ_PK_MENUINFOID.nextval,#{menuName},#{jumpUrl},#{parentId},#{iconUrl})
+    </insert>
+    <!--修改菜单-->
+    <update id="updateMenu" parameterType="com.xian.menu.pojo.Menu">
+        update menu set menuname=#{menuName},jumpurl=#{jumpUrl},parentid=#{parentId},iconurl=#{iconUrl} where menuid = #{menuId}
+    </update>
+    <!--删除菜单-->
+    <delete id="deleteMenuById" parameterType="int">
+        delete from menu where menuid = #{menuid}
+    </delete>
+    <!--动态查询菜单(if)(模糊查询)-->
+    <select id="selectMenuInfoBy" parameterType="com.xian.menu.pojo.Menu" resultType="com.xian.menu.pojo.Menu">
+        SELECT * FROM Menu where 1=1
+        <if test="menuId!=null">or menuid=#{menuId}</if>
+        <if test="menuName!=null">or menuname=#{menuName}</if>
+        <if test="jumpUrl!=null">or jumpurl=#{jumpUrl}</if>
+        <if test="parentId!=null">or parentid=#{parentId}</if>
+        <if test="iconUrl!=null">or iconurl=#{iconUrl}</if>
+    </select>
+    <!--if+where语句(查询)(具体查询一个对象)-->
+    <select id="selectMenuBy1" parameterType="com.xian.menu.pojo.Menu" resultType="com.xian.menu.pojo.Menu">
+        SELECT * FROM Menu
+        <where>
+            <if test="menuId!=null">and menuid=#{menuId}</if>
+            <if test="menuName!=null">and menuname=#{menuName}</if>
+            <if test="jumpUrl!=null">and jumpurl=#{jumpUrl}</if>
+            <if test="parentId!=null">and parentid=#{parentId}</if>
+            <if test="iconUrl!=null">and iconurl=#{iconUrl}</if>
+        </where>
+    </select>
+    <!--if+set语句(修改)-->
+    <update id="updateMenuBy" parameterType="com.xian.menu.pojo.Menu">
+        update Menu
+        <set>
+            <if test="menuId!=null">menuid=#{menuId},</if>
+            <if test="menuName!=null">menuname=#{menuName},</if>
+            <if test="jumpUrl!=null">jumpurl=#{jumpUrl},</if>
+            <if test="parentId!=null">parentid=#{parentId},</if>
+            <if test="iconUrl!=null">iconurl=#{iconUrl}</if>
+        </set>
+        where menuid = #{menuid}
+    </update>
+
+    <!--根据roleId删除中间表信息-->
+    <delete id="deleteRoleMenuByRoleId" parameterType="int">
+        delete from role_menu where roleid=#{roleId}
+    </delete>
+
+    <!--根据roleId和menus循环插入中间表数据-->
+    <insert id="batchSave" parameterType="com.xian.menu.vo.ImpowerVo">
+        insert into role_menu(RMID,ROLEID,MENUID)
+        select SEQ_PK_RMID.nextval,cd.* from(
+        <foreach collection="menus" item="menuId" separator="union all">
+            select #{roleId},#{menuId} from dual
+        </foreach>
+        )cd
+    </insert>
+    <!--菜单维护(单表显示菜单)-->
+    <select id="selectAllMenus" resultType="com.xian.menu.pojo.Menu">
+        select * from menu
+    </select>
+
+    <!--动态菜单显示-->
+    <!--<resultMap id="MenuDtoMap" type="com.xian.menu.dto.MenuDto">
+        <id column="MENUID" property="id"></id>
+        <result column="MENUNAME" property="name"></result>
+        <result column="MENUURL" property="url"></result>
+        <result column="MENUICON" property="icon"></result>
+        <collection property="children" ofType="com.xian.menu.dto.MenuDto" column="{parentId=menuId,roleId=roleId}"
+                    select="findMenuByParentId1"></collection>
+    </resultMap>
+    <select id="selectUser_Role_Menu" resultMap="MenuDtoMap" parameterType="com.xian.roleinfo.vo.UserRoleVo">
+        select menu.*,#{roleId} roleId from menu,role_menu rm where
+        <foreach collection="roleIds" item="roleId" separator="union all">
+            rm.roleId=#{roleId}
+        </foreach>
+
+    </select>
+    <select id="findMenuByParentId1" resultMap="MenuDtoMap" parameterType="java.util.Map">
+        select menu.*,#{roleId} roleId from menu,role_menu rm where rm.roleid=#{roleId} and menu.menuid=rm.menuid and menu.PARENTID=#{parentId}
+    </select>-->
+
+    <!--动态菜单显示-->
+    <resultMap id="MenuDtoMap" type="com.xian.menu.dto.MenuDto">
+        <id column="MENUID" property="id"></id>
+        <result column="PARENTID" property="pid"></result>
+        <result column="MENUNAME" property="name"></result>
+        <result column="JUMPURL" property="url"></result>
+        <result column="MENUICON" property="icon"></result>
+
+    </resultMap>
+    <select id="selectUser_Role_Menu" resultMap="MenuDtoMap" parameterType="com.xian.roleinfo.vo.UserRoleVo">
+        select * from MENU where menuid in(SELECT menuid FROM ROLE_MENU where roleid in(select ROLEID from  USERINFO_ROLEINFO where USERID=#{userId}))
+    </select>
+
+</mapper>
