@@ -5,9 +5,18 @@ import com.xian.reward.service.RewardService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class RewardServiceImplTest {
+    @Test
+    public void selectAllReward() {
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring-mybatis.xml", "spring-service.xml");
+        RewardService bean = classPathXmlApplicationContext.getBean(RewardService.class);
+        List<Reward> rewardList = bean.selectAllReward("电子手表");
+        System.out.println(rewardList);
+    }
 
     /*@Test
     public void addReward() {

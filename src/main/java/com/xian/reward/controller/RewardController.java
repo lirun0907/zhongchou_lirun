@@ -30,7 +30,9 @@ public class RewardController {
     }
     /*查询所有*/
     @RequestMapping("selectAllReward")
-    public Object selectAllReward(@RequestParam String applyProjectName){
+    public Object selectAllReward(@RequestBody Reward reward){
+        String applyProjectName = reward.getApplyProjectName();
+//        System.out.println(applyProjectName);
         return rewardService.selectAllReward(applyProjectName);
     }
     /*把图片保存*/

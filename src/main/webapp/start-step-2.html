@@ -200,29 +200,22 @@
                                       <thead>
                                         <tr style="background-color:#ddd;">
                                           <td>序号</td>
+                                          <td>项目名称</td>
+                                          <td>回报类型</td>
                                           <td>支付金额</td>
-                                          <td>名额</td>
-                                          <td>单笔限购</td>
                                           <td>回报内容</td>
+                                          <td>解释说明</td>
+                                          <td>回报名额</td>
+                                          <td>单笔限购</td>
+                                          <td>运费</td>
                                           <td>回报时间</td>
                                           <td>运费</td>
                                           <td>操作</td>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td    scope="row">1</td>
-                                          <td>￥1.00</td>
-                                          <td>无限制</td>
-                                          <td>1</td>
-                                          <td>1</td>
-                                          <td>项目结束后的30天</td>
-                                          <td>包邮</td>
-                                          <td>
-                                                      <button type="button" class="btn btn-primary btn-xs"><i class=" glyphicon glyphicon-pencil"></i></button>
-                                                      <button type="button" class="btn btn-danger btn-xs"><i class=" glyphicon glyphicon-remove"></i></button>
-                                          </td>
-                                        </tr>
+                                      <tbody id="tbody">
+
+
                                       </tbody>
                                     </table>
                                     <button type="button" class="btn btn-primary btn-lg" onclick="$('.huibao').show();"><i class="glyphicon glyphicon-plus"></i> 添加回报</button>
@@ -351,7 +344,7 @@
                         </div>
                         <div class="panel-footer" style="text-align:center;">
                             <button type="button" class="btn  btn-default btn-lg" onclick="window.location.href='start-step-1.html'">上一步</button>
-                            <button type="button" class="btn  btn-warning btn-lg" onclick="addReward()">下一步</button>
+                            <button type="button" class="btn  btn-warning btn-lg" onclick="window.location.href='start-step-3.html'">下一步</button>
                             <a class="btn" > 预览 </a>
                         </div>
                     </div>
@@ -377,16 +370,43 @@
         </div>
       
     </div> <!-- /container -->
+ <!--弹框显示照片-->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                 <h4 class="modal-title" id="myModalLabel">帮助</h4>
+             </div>
+             <div class="modal-body">
+                 <div class="form-group">
+                     <label for="exampleInputPassword1">证件照图片</label>
+                     <img src="" id="explainPhoto2" style="width: 560px;height: 400px">
+                 </div>
+             </div>
+
+             <!--<div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                 <button type="button" class="btn btn-primary" onclick="addQua()">增加</button>
+             </div>-->
+
+         </div>
+     </div>
+ </div>
     <script src="jquery/jquery-2.1.1.min.js"></script>
     <script src="jquery/jquery.cookie.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="script/docs.min.js"></script>
     <script src="script/back-to-top.js"></script>
 	<script>
-        /*发起ajax请求获得账号*/
+        var applyProjectName;
+        // var applyProjectName = "电子手表";
+
         var account;
         $(function () {
-            $.ajax({
+            applyProjectName=$.cookie("applyProjectName");
+            /*发起ajax请求获得账号*/
+            /*$.ajax({
                 type: "POST",
                 url: "selectRealNameStatus",
                 async: false,
@@ -397,8 +417,42 @@
                 error: function () {
                     alert("请求失败");
                 }
+            });*/
+/*加载页面显示回报内容*/
+            $.ajax({
+                type: "POST",
+                url: "selectAllReward",
+                async: false,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data:JSON.stringify({"applyProjectName":"电子手表"}),
+                success: function (data) {
+                    $.each(data,function (index,element) {
+                        var stu="<tr><td class='rewardId'>"+element.rewardId+"</td><td>"+element.applyProjectName+"</td>" +
+                            "<td>"+element.rewardType+"</td><td>"+element.payMoney+"</td>" +
+                            "<td>"+element.rewardContent+"</td><td data-toggle=\"modal\" data-target=\"#myModal\" onclick='explainPhoto("+JSON.stringify(element.explainPhoto)+")'><a>查看</a></td>" +
+                            "<td>"+element.rewardNumber+"</td><td>"+element.limitNumber+"</td>"+
+                            "<td>"+element.freight+"</td><td>"+element.invoice+"</td><td>"+element.rewardTime+"</td>"+
+                            "<td>" +
+                            "<button type=\"button\" class=\"btn btn-success btn-xs\" onclick=''>" +"<i class=\" glyphicon glyphicon-check\"></i></button> " +
+                            "<button type=\"button\" class=\"btn btn-danger btn-xs\">" +"<i class=\" glyphicon glyphicon-remove\"></i></button> </td> </tr>";
+                        // "<select class=\"status\">"+
+                        // 	"<option>审核通过</option>"+
+                        // 	"<option>未审核</option>"+
+                        // "</select></td>" +
+                        $("#tbody").append(stu);
+                    });
+                },
+                error: function () {
+                    alert("请求失败");
+                }
             });
+
         })
+        function explainPhoto(explainPhoto) {
+            // idPhoto = idPhoto.split("webapp\\")[1];
+            $("#explainPhoto2").attr("src",explainPhoto);
+        }
         /*说明图片显示*/
         $('#explainPhoto').on('change',function() {
             var filePath = $(this).val();        //获取到input的value，里面是文件的路径
@@ -432,7 +486,7 @@
 /*筹资项目的回报设置入库*/
         function addReward() {
             var rewardType = $("input[name='inlineRadioOptions']:checked").val();
-            alert(rewardType);
+            // alert(rewardType);
             var payMoney = $(".payMoney").val();
             var rewardContent = $(".rewardContent").val();
             var rewardNumber = $(".rewardNumber").val();
@@ -440,9 +494,9 @@
             var freight = $(".freight").val();
             var rewardTime = $(".rewardTime").val();
             var invoice = $("input[name='inlineRadioOptions1']:checked").val();
-            alert(invoice);
-            var applyProjectName=$.cookie("applyProjectName");
-            alert(applyProjectName);
+            // alert(invoice);
+            // var applyProjectName=$.cookie("applyProjectName");
+            // alert(applyProjectName);
             $.ajax({
                 type:"POST",
                 async:false,
@@ -452,7 +506,7 @@
                 data:JSON.stringify({"rewardType":rewardType,"payMoney":payMoney,"rewardNumber":rewardNumber,"limitNumber":limitNumber,"freight":freight,"rewardTime":rewardTime,"invoice":invoice,"applyProjectName":applyProjectName,"rewardContent":rewardContent}),
                 success: function(message){
                     if(message==1) {
-                        window.location.href = "start-step-3.html";
+                        window.location.href = "start-step-2.html";
                     }
                 },
                 error:function () {

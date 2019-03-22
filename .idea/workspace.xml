@@ -7,41 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e164cf67-6393-4dd5-888f-aa421ccf78f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xian/applyproject/controller/ApplyProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xian/applyproject/controller/ApplyProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553072671139p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553134110839p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553175155154p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553175547278p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553182441659p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/start-step-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/start-step-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553068281105qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553069226088qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553069460536qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553069627585qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553070434156qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553071043319qq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553072410435p3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553187119367p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553187612049p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553187839920p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553188412660p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553216563977p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553216563986p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553216664076p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553217157856p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553217157862p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/idPhoto/1553217192046p2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/start-step-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/start-step-2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/start-step-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/start-step-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xian/applyproject/service/impl/ApplyProjectServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xian/applyproject/service/impl/ApplyProjectServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xian/applyproject/controller/ApplyProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xian/applyproject/controller/ApplyProjectController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xian/reward/controller/RewardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xian/reward/controller/RewardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xian.applyproject.service.impl.ApplyProjectServiceImplTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xian.project.service.impl.ProjectServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xian.project.service.impl.ProjectServiceImplTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xian.reward.service.impl.RewardServiceImplTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.xian.applyproject.service.impl.ApplyProjectServiceImplTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.xian.project.service.impl.ProjectServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.xian.project.service.impl.ProjectServiceImplTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.xian.reward.service.impl.RewardServiceImplTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xian/applyproject/service/impl/ApplyProjectServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xian/applyproject/service/impl/ApplyProjectServiceImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/com/xian/applyproject/controller/ApplyProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/com/xian/applyproject/controller/ApplyProjectController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/com/xian/reward/controller/RewardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/com/xian/reward/controller/RewardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/WEB-INF/classes/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553072671139p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553134110839p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553175155154p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553175547278p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553182441659p2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/start-step-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/start-step-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/start-step-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/start-step-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/start-step-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/start-step-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553187119367p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553187612049p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553187839920p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/zhongchou_lirun-1.0-SNAPSHOT/idPhoto/1553188412660p2.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="144">
+              <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,44 +57,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/service/RewardService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/pojo/Reward.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="235" column="61" selection-start-line="235" selection-start-column="61" selection-end-line="235" selection-end-column="61" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="459" column="17" selection-start-line="459" selection-start-column="17" selection-end-line="459" selection-end-column="17" />
+            <state relative-caret-position="325">
+              <caret line="13" column="30" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-3.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="282" column="27" lean-forward="true" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="27" />
+            <state relative-caret-position="-196">
+              <caret line="409" column="29" lean-forward="true" selection-start-line="409" selection-start-column="29" selection-end-line="409" selection-end-column="29" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/service/impl/RewardServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/auth_cert.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="207" column="10" lean-forward="true" selection-start-line="185" selection-end-line="207" selection-end-column="10" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/applyproject/controller/ApplyProjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="3">
+              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,10 +114,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/auth_project.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+            <state relative-caret-position="-2100">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -137,6 +130,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4639">
+              <caret line="91" column="21" lean-forward="true" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -155,9 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>h3</find>
-      <find>我的众筹</find>
-      <find>approve()</find>
       <find>发起</find>
       <find>approve</find>
       <find>projectName</find>
@@ -170,13 +169,10 @@
       <find>applyProjectSession</find>
       <find>System.out.println</find>
       <find>acc</find>
-      <find>张三</find>
       <find>account</find>
-      <find>张</find>
       <find>下一步</find>
       <find>回报</find>
       <find>radio-inline</find>
-      <find>addReward</find>
       <find>rewardTime</find>
       <find>applyProjectName</find>
       <find>rewardType</find>
@@ -185,6 +181,12 @@
       <find>start-step-4.html</find>
       <find>projectIntro</find>
       <find>getApplyProjectSession</find>
+      <find>张</find>
+      <find>张三</find>
+      <find>addReward</find>
+      <find>explainPhoto</find>
+      <find>explainPhoto1</find>
+      <find>explainPhoto12</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,7 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xian/project/service/ProjectService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xian/project/service/impl/ProjectServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ProjectInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/project_type.html" />
@@ -235,15 +236,16 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pay-step-2.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/xian/reward/pojo/Reward.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/RewardMapper.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/xian/applyproject/service/impl/ApplyProjectServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/start-step-2.html" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/start-step-1.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/xian/applyproject/controller/ApplyProjectController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/start-step-4.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/start-step-3.html" />
+        <option value="$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/start-step-2.html" />
       </list>
     </option>
   </component>
@@ -376,25 +378,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xian" type="462c0819:PsiDirectoryNode" />
-              <item name="realname" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xian" type="462c0819:PsiDirectoryNode" />
-              <item name="realname" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xian" type="462c0819:PsiDirectoryNode" />
               <item name="reward" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -422,6 +405,27 @@
               <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xian" type="462c0819:PsiDirectoryNode" />
+              <item name="reward" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xian" type="462c0819:PsiDirectoryNode" />
+              <item name="reward" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -439,35 +443,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="idPhoto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhongchou_lirun" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zhongchou_lirun" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xian" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -479,7 +454,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553188431424" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553221482066" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../mybatis_user" />
@@ -499,19 +474,19 @@
       <recent name="com.xian.realname.Service.impl" />
       <recent name="com.xian.project.service.impl" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\ideaprj\zhongchou_lirun\src\main\webapp" />
-      <recent name="E:\ideaprj\zhongchou_lirun\src\main" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\ideaprj\zhongchou_lirun\src\main\webapp\jquery" />
       <recent name="E:\ideaprj\zhongchou_lirun\src\main\webapp" />
       <recent name="E:\ideaprj\zhongchou_lirun\src\main\resources\mapper" />
       <recent name="E:\ideaprj\zhongchou_lirun\src\main\webapp\WEB_INF" />
       <recent name="E:\ideaprj\zhongchou_lirun\src\main\resources\webapp\WEB_INF" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ideaprj\zhongchou_lirun\src\main\webapp" />
+      <recent name="E:\ideaprj\zhongchou_lirun\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -526,7 +501,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.31">
+  <component name="RunManager" selected="JUnit.RewardServiceImplTest.selectAllReward">
     <configuration name="ApplyProjectServiceImplTest.addApplyProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="zhongchou_lirun" />
       <extension name="coverage">
@@ -607,6 +582,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RewardServiceImplTest.selectAllReward" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zhongchou_lirun" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xian.reward.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xian.reward.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.xian.reward.service.impl.RewardServiceImplTest" />
+      <option name="METHOD_NAME" value="selectAllReward" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -681,6 +672,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RewardServiceImplTest.selectAllReward" />
         <item itemvalue="JUnit.ApplyProjectServiceImplTest.addApplyProject" />
         <item itemvalue="JUnit.RealNameServiceImplTest.selectStatusByAccount" />
         <item itemvalue="JUnit.RealNameServiceImplTest.addRealName" />
@@ -701,14 +693,11 @@
       <workItem from="1552876185966" duration="34114000" />
       <workItem from="1552955641062" duration="37320000" />
       <workItem from="1553042221591" duration="80513000" />
-      <workItem from="1553215161062" duration="2331000" />
+      <workItem from="1553215161062" duration="6284000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RealNameServiceImplTest_addRealName - 2019.03.20 at 16h 30m 01s.xml">
-      <configuration name="RealNameServiceImplTest.addRealName" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RealNameServiceImplTest_addRealName - 2019.03.20 at 16h 30m 43s.xml">
       <configuration name="RealNameServiceImplTest.addRealName" configurationId="JUnit" />
     </history-entry>
@@ -736,9 +725,12 @@
     <history-entry file="RewardServiceImplTest_addReward - 2019.03.21 at 23h 01m 44s.xml">
       <configuration name="RewardServiceImplTest.addReward" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RewardServiceImplTest_selectAllReward - 2019.03.22 at 10h 04m 32s.xml">
+      <configuration name="RewardServiceImplTest.selectAllReward" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154278000" />
+    <option name="totallyTimeSpent" value="158231000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -753,7 +745,7 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12841946" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.041793313" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -763,7 +755,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.64542484" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19967267" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.08510638" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -797,16 +789,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/userinfo/controller/UserInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/idPhoto/1553068281105qq.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1000,18 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/service/impl/RewardServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="63" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pay-step-2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -1026,25 +996,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/auth_cert.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="234" column="45" lean-forward="true" selection-start-line="234" selection-start-column="45" selection-end-line="234" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/apply-1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-4.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/xian/realname/service/impl/RealNameServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1060,13 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/realname/controller/RealNameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -1074,13 +1024,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/pojo/Reward.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1142,13 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -1167,17 +1103,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-2.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="459" column="17" selection-start-line="459" selection-start-column="17" selection-end-line="459" selection-end-column="17" />
+        <state relative-caret-position="403">
+          <caret line="261" column="10" lean-forward="true" selection-start-line="246" selection-start-column="8" selection-end-line="261" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/auth_project.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2100">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4639">
+          <caret line="91" column="21" lean-forward="true" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/pojo/Reward.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/auth_cert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="207" column="10" lean-forward="true" selection-start-line="185" selection-end-line="207" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/xian/reward/service/impl/RewardServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/service/impl/RewardServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/applyproject/controller/ApplyProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="3">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1186,18 +1177,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xian/reward/controller/RewardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="144">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-3.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/start-step-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="282" column="27" lean-forward="true" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="27" />
+        <state relative-caret-position="-196">
+          <caret line="409" column="29" lean-forward="true" selection-start-line="409" selection-start-column="29" selection-end-line="409" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
