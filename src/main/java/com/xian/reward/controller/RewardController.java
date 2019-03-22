@@ -21,11 +21,11 @@ public class RewardController {
     /*添加*/
     @RequestMapping("addReward")
     public Object addReward(@RequestBody Reward reward,HttpSession session){
-        System.out.println(reward);
+//        System.out.println(reward);
         String explainPhoto = (String)session.getAttribute("explainPhoto");
-        System.out.println(explainPhoto);
+//        System.out.println(explainPhoto);
         reward.setExplainPhoto(explainPhoto);
-        reward.setApplyProjectName("手机");
+//        reward.setApplyProjectName("手机");
         return rewardService.addReward(reward);
     }
     /*查询所有*/
@@ -41,6 +41,6 @@ public class RewardController {
         explainPhoto.transferTo(newFile);
         String path2 = path.substring(path.indexOf("idPhoto\\"));
         session.setAttribute("explainPhoto",path2);
-        System.out.println(path2);
+//        System.out.println(path2);
     }
 }

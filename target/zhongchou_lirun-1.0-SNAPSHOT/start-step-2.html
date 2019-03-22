@@ -240,10 +240,10 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">回报类型</label>
                 <div class="col-sm-10">
                      <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1"> 实物回报
+                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="实物回报"> 实物回报
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2"> 虚拟物品回报
+                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="虚拟物品回报"> 虚拟物品回报
                     </label>
                 </div>
               </div>
@@ -301,10 +301,10 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">发票</label>
                 <div class="col-sm-10">
                      <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> 不可开发票
+                      <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="不可开发票"> 不可开发票
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 可开发票（包括个人发票和自定义抬头发票）
+                      <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="可开发票"> 可开发票（包括个人发票和自定义抬头发票）
                     </label>
                 </div>
               </div>
@@ -432,6 +432,7 @@
 /*筹资项目的回报设置入库*/
         function addReward() {
             var rewardType = $("input[name='inlineRadioOptions']:checked").val();
+            alert(rewardType);
             var payMoney = $(".payMoney").val();
             var rewardContent = $(".rewardContent").val();
             var rewardNumber = $(".rewardNumber").val();
@@ -439,6 +440,7 @@
             var freight = $(".freight").val();
             var rewardTime = $(".rewardTime").val();
             var invoice = $("input[name='inlineRadioOptions1']:checked").val();
+            alert(invoice);
             var applyProjectName=$.cookie("applyProjectName");
             alert(applyProjectName);
             $.ajax({
@@ -449,7 +451,9 @@
                 url:"addReward",
                 data:JSON.stringify({"rewardType":rewardType,"payMoney":payMoney,"rewardNumber":rewardNumber,"limitNumber":limitNumber,"freight":freight,"rewardTime":rewardTime,"invoice":invoice,"applyProjectName":applyProjectName,"rewardContent":rewardContent}),
                 success: function(message){
-                    window.location.href="start-step-3.html";
+                    if(message==1) {
+                        window.location.href = "start-step-3.html";
+                    }
                 },
                 error:function () {
                     alert("请求失败");

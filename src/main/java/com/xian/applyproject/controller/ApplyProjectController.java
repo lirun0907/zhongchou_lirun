@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
@@ -21,26 +22,33 @@ public class ApplyProjectController {
     ApplyProjectService applyProjectService;
     @RequestMapping("addApplyProject")
     public Object addApplyProject(HttpSession session) throws IOException {
-        MultipartFile projectHeader = (MultipartFile)session.getAttribute("projectHeader");
-        String path="E:\\ideaprj\\zhongchou_lirun\\src\\main\\webapp\\idPhoto\\"+new Date().getTime()+projectHeader.getOriginalFilename();
-        File newFile=new File(path);
-        projectHeader.transferTo(newFile);
-
-        MultipartFile projectDetails = (MultipartFile)session.getAttribute("projectDetails");
-        String path2="E:\\ideaprj\\zhongchou_lirun\\src\\main\\webapp\\idPhoto\\"+new Date().getTime()+projectDetails.getOriginalFilename();
-        File newFile2=new File(path);
-        projectDetails.transferTo(newFile);
 
         ApplyProject applyProject = (ApplyProject)session.getAttribute("applyProject");
-        applyProject.setProjectHeader(path);
-        applyProject.setProjectDetails(path2);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd : hh_MM_ss");
+        Date date = new Date();
+        String date1 = simpleDateFormat.format(date);
+        applyProject.setCreateTime(date1);
+//        System.out.println("添加筹资项目时的对象"+applyProject);
         return applyProjectService.addApplyProject(applyProject);
     }
 /*筹资项目图片信息存session*/
     @RequestMapping("applyProjectSession")
-    public Object applyProjectSession(HttpServletRequest request, @RequestParam("projectHeader") MultipartFile projectHeader,@RequestParam("projectDetails") MultipartFile projectDetails, HttpSession session){
-        session.setAttribute("projectHeader",projectHeader);
-        session.setAttribute("projectDetails",projectDetails);
+    public Object applyProjectSession(HttpServletRequest request, @RequestParam("projectHeader") MultipartFile projectHeader,@RequestParam("projectDetails") MultipartFile projectDetails, HttpSession session) throws IOException {
+        String projectHeader1="E:\\ideaprj\\zhongchou_lirun\\src\\main\\webapp\\idPhoto\\"+new Date().getTime()+projectHeader.getOriginalFilename();
+        File newFile=new File(projectHeader1);
+        projectHeader.transferTo(newFile);
+        String projectHeader2 = projectHeader1.substring(projectHeader1.indexOf("idPhoto\\"));
+
+
+        String projectDetails1="E:\\ideaprj\\zhongchou_lirun\\src\\main\\webapp\\idPhoto\\"+new Date().getTime()+projectDetails.getOriginalFilename();
+        File newFile1=new File(projectDetails1);
+        projectDetails.transferTo(newFile1);
+        String projectDetails2 = projectDetails1.substring(projectDetails1.indexOf("idPhoto\\"));
+
+
+
+       /* session.setAttribute("projectHeader",projectHeader1);
+        session.setAttribute("projectDetails",projectDetails1);*/
         String applyProjectName=request.getParameter("applyProjectName");
         String applyProjectType = request.getParameter("applyProjectType");
         String projectIntro = request.getParameter("projectIntro");
@@ -65,19 +73,10 @@ public class ApplyProjectController {
         applyProject.setTelephone(telephone);
         applyProject.setCustomerTel(customerTel);
         applyProject.setAccount(account);
+        applyProject.setProjectHeader(projectHeader2);
+        applyProject.setProjectDetails(projectDetails2);
         session.setAttribute("applyProject",applyProject);
-//        System.out.println("11"+applyProject);
-        return true;
-    }
-    /*从session中取出筹资项目图片信息*/
-    @RequestMapping("getApplyProjectSession")
-    public Object getApplyProjectSession(HttpSession session){
-        MultipartFile projectHeader = (MultipartFile)session.getAttribute("projectHeader");
-        MultipartFile projectDetails = (MultipartFile)session.getAttribute("projectDetails");
-        ApplyProject applyProject = (ApplyProject) session.getAttribute("applyProject");
-//        System.out.println(projectHeader.getOriginalFilename());
-//        System.out.println(projectDetails.getOriginalFilename());
-//        System.out.println("22"+applyProject);
+//        System.out.println("session中的"+applyProject);
         return true;
     }
 }
