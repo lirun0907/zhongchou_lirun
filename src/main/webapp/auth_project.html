@@ -143,54 +143,27 @@
           <div class="table-responsive">
             <table class="table  table-bordered">
               <thead>
-                <tr >
-                  <th width="30">#</th>
-                  <th>项目名称</th>
-                  <th>发起人</th>
-                  <th>目标金额（元）</th>
-                  <th>众筹周期(天)</th>
-                  <th>创建时间</th>
-                  <th width="100">操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>XXXXXXXXXXXX项目</td>
-                  <td>XXXXXXXXXXXX公司</td>
-                  <td>1000000.00</td>
-                  <td>30</td>
-                  <td>2017-06-01 19:00:00</td>
-                  <td>
-                      <button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button>
-				  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>XXXXXXXXXXXX项目</td>
-                  <td>XXXXXXXXXXXX公司</td>
-                  <td>1000000.00</td>
-                  <td>30</td>
-                  <td>2017-06-01 19:00:00</td>
-                  <td>
-                      <button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button>
-				  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>XXXXXXXXXXXX项目</td>
-                  <td>XXXXXXXXXXXX公司</td>
-                  <td>1000000.00</td>
-                  <td>30</td>
-                  <td>2017-06-01 19:00:00</td>
-                  <td>
-                      <button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button>
-				  </td>
-                </tr>
+				  <tr>
+					  <th width="30">#</th>
+					  <th>项目名称</th>
+					  <th>发起人</th>
+					  <th>类型</th>
+					  <th>筹资金额</th>
+					  <th>筹资天数</th>
+					  <th>项目头图</th>
+					  <th>详情图</th>
+					  <th>状态</th>
+					  <th>创建时间</th>
+					  <th>查看详情</th>
+					  <th width="100">操作</th>
+				  </tr>
+			  </thead>
+              <tbody id="tbody">
+
               </tbody>
 			  <tfoot>
 			     <tr >
-				     <td colspan="7" align="center">
+				     <td colspan="12" align="center">
 						<ul class="pagination">
 								<li class="disabled"><a href="#">上一页</a></li>
 								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -228,6 +201,41 @@
 					}
 				});
             });
-        </script>
+			$.ajax({
+				url: "getAllApplyProject",
+				type: "POST",
+				success: function (data) {
+					$.each(data, function (index, element) {
+						var stu = "";
+						stu += "<tr><td>" + element.applyProjectId + "</td> <td>" + element.applyProjectName + "</td><td>" + element.account + "</td> " +
+								"<td>" + element.applyProjectType + "</td> <td>" + element.financingMoney + "</td> <td>" + element.day + "</td>" +
+								" <td><span>查看</span></td> <td><span>查看</span></td> <td>" + element.projectStatus + "</td>" +
+								" <td>" + element.createTime + "</td> <td><span>详情</span></td> <td> <button type=\"button\" class=\"btn btn-success btn-xs\" onclick='updateApplyProject(" + JSON.stringify(element) + ")'>" +
+								"<i class=\"glyphicon glyphicon-eye-open\"></i></button> </td> </tr>";
+						$("#tbody").append(stu);
+					})
+				}
+			});
+			function updateApplyProject(element) {
+				if(element.projectStatus=="未审核"){
+					projectStatus = "审核通过";
+					if(confirm("确定审核通过?")){
+						$.ajax({
+							type: "POST",
+							async:false,
+							dataType: "json",
+							contentType: "application/json;charset=utf-8",
+							data:JSON.stringify({"applyProjectId":element.applyProjectId,"projectStatus":projectStatus}),
+							url: "updateApplyProjectById",
+						});
+						window.location.href = "auth_project.html";
+					}
+				}else {
+					alert("审核通过");
+				}
+				
+			}
+
+		</script>
   </body>
 </html>

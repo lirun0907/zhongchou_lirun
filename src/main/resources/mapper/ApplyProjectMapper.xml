@@ -8,5 +8,13 @@
         #{financingMoney},#{day},#{projectHeader},#{projectDetails},#{selfIntroduction},#{detailedIntroduction},#{telephone},#{customerTel},
         #{projectStatus},#{raiseMoney},#{createTime})
     </insert>
+    <!--查询所有-->
+    <select id="getAllApplyProject" resultType="com.xian.applyproject.pojo.ApplyProject">
+        select * from applyproject
+    </select>
+    <!--修改-->
+    <update id="updateApplyProjectById" parameterType="com.xian.applyproject.pojo.ApplyProject">
+        update applyproject set projectStatus=#{projectStatus} where applyProjectId=#{applyProjectId}
+    </update>
 
 </mapper>

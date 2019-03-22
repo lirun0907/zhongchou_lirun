@@ -15,11 +15,23 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class ApplyProjectController {
     @Autowired
     ApplyProjectService applyProjectService;
+    /*查询所有*/
+    @RequestMapping("getAllApplyProject")
+    public Object getAllApplyProject() {
+        return applyProjectService.getAllApplyProject();
+    }
+    /*修改*/
+    @RequestMapping("updateApplyProjectById")
+    public Object updateApplyProjectById(@RequestBody ApplyProject applyProject) {
+        return applyProjectService.updateApplyProjectById(applyProject);
+    }
+    /*添加*/
     @RequestMapping("addApplyProject")
     public Object addApplyProject(HttpSession session) throws IOException {
 
