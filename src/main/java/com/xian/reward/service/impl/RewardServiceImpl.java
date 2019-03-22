@@ -20,4 +20,8 @@ public class RewardServiceImpl implements RewardService {
     public List<Reward> selectAllReward(String applyProjectName) {
         return rewardMapper.selectAllReward(applyProjectName);
     }
+    /* 根据id查询回报信息*/
+    public Reward selectRewardById(Integer rewardId) {
+        return rewardMapper.selectRewardById(rewardId);
+    }
 }

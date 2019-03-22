@@ -31,12 +31,22 @@ public class ApplyProjectController {
     public Object updateApplyProjectById(@RequestBody ApplyProject applyProject) {
         return applyProjectService.updateApplyProjectById(applyProject);
     }
+    /*根据审核状态查询已通过的所有项目*/
+    @RequestMapping("selectApplyProjectByStatus")
+    public Object selectApplyProjectByStatus() {
+        return applyProjectService.selectApplyProjectByStatus();
+    }
+    /*根据id查询筹资项目*/
+    @RequestMapping("selectApplyProjectByApplyProjectId")
+    public Object selectApplyProjectByApplyProjectId(@RequestParam Integer applyProjectId) {
+        return applyProjectService.selectApplyProjectByApplyProjectId(applyProjectId);
+    }
     /*添加*/
     @RequestMapping("addApplyProject")
     public Object addApplyProject(HttpSession session) throws IOException {
 
         ApplyProject applyProject = (ApplyProject)session.getAttribute("applyProject");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd : hh_MM_ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd:hh-MM-ss");
         Date date = new Date();
         String date1 = simpleDateFormat.format(date);
         applyProject.setCreateTime(date1);

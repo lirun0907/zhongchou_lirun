@@ -35,6 +35,11 @@ public class RewardController {
 //        System.out.println(applyProjectName);
         return rewardService.selectAllReward(applyProjectName);
     }
+    /* 根据id查询回报信息*/
+    @RequestMapping("selectRewardById")
+    public Object selectRewardById(@RequestParam Integer rewardId){
+        return rewardService.selectRewardById(rewardId);
+    }
     /*把图片保存*/
     @RequestMapping("saveFile")
     public void saveFile(@RequestParam("explainPhoto") MultipartFile explainPhoto, HttpSession session) throws IOException {

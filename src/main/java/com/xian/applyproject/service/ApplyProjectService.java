@@ -11,4 +11,8 @@ public interface ApplyProjectService {
     public List<ApplyProject> getAllApplyProject();
     /*修改*/
     public Integer updateApplyProjectById(ApplyProject applyProject);
+    /*根据审核状态查询已通过的所有项目*/
+    public List<ApplyProject> selectApplyProjectByStatus();
+    /*根据id查询筹资项目*/
+    public ApplyProject selectApplyProjectByApplyProjectId(Integer applyProjectId);
 }

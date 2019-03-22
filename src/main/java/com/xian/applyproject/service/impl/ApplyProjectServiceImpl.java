@@ -24,4 +24,12 @@ public class ApplyProjectServiceImpl implements ApplyProjectService {
     public Integer updateApplyProjectById(ApplyProject applyProject) {
         return applyProjectMapper.updateApplyProjectById(applyProject);
     }
+    /*根据审核状态查询已通过的所有项目*/
+    public List<ApplyProject> selectApplyProjectByStatus() {
+        return applyProjectMapper.selectApplyProjectByStatus();
+    }
+    /*根据id查询筹资项目*/
+    public ApplyProject selectApplyProjectByApplyProjectId(Integer applyProjectId) {
+        return applyProjectMapper.selectApplyProjectByApplyProjectId(applyProjectId);
+    }
 }

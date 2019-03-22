@@ -183,18 +183,18 @@
                                       </thead>
                                       <tbody>
                                         <tr>
-                                          <td>活性富氢净水直饮机</td>
-                                          <td>深圳市博实永道电子商务有限公司</td>
-                                          <td>每满1750人抽取一台活性富氢净水直饮机，至少抽取一台。抽取名额（小数点后一位四舍五入）=参与人数÷1750人，由苏宁官方抽取。</td>
-                                          <td><input type="text" class="form-control" style="width:60px;" value="1"></td>
-                                          <td style="color:#F60">￥ 1.00</td>
-                                          <td>免运费</td>
+                                          <td class="applyProjectName">活性富氢净水直饮机</td>
+                                          <td class="account">深圳市博实永道电子商务有限公司</td>
+                                          <td class="rewardContent">每满1750人抽取一台活性富氢净水直饮机，至少抽取一台。抽取名额（小数点后一位四舍五入）=参与人数÷1750人，由苏宁官方抽取。</td>
+                                          <td><input type="text" class="form-control rewardNumber" style="width:60px;" value="1" onchange="totalUpdate()"></td>
+                                          <td style="color:#F60" class="payMoney">￥ 1.00</td>
+                                          <td class="freight">免运费</td>
                                         </tr>
                                       </tbody>
                                     </table>
                                     <div style="float:right;">
-                                    <p>总价(含运费)：<span style="font-size:16px;color:#F60;">￥1.00</span></p>
-                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="window.location.href='pay-step-2.html'"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
+                                    <p>总价(含运费)：<span style="font-size:16px;color:#F60;" class="total">￥1.00</span></p>
+                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="account()"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
                                     </div>
                                 </div>
                                 
@@ -244,14 +244,46 @@
       
     </div> <!-- /container -->
     <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="jquery/jquery.cookie.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="script/docs.min.js"></script>
     <script src="script/back-to-top.js"></script>
 	<script>
-$('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+        $('#myTab a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        })
+        $(".account").html($.cookie("account"));
+        $(function () {
+            var rewardId = window.location.search.split("=")[1];
+            $.ajax({
+                type: "POST",
+                url: "selectRewardById?rewardId=" + rewardId,
+                async: false,
+                success: function (data) {
+                    $(".applyProjectName").html(data.applyProjectName);
+                    $(".rewardContent").html(data.rewardContent);
+                    $(".rewardNumber").val(data.rewardNumber);
+                    $(".payMoney").html(data.payMoney);
+                    $(".freight").html(data.freight);
+                    $(".rewardContent").html(data.rewardContent);
+                    $(".total").html(data.rewardNumber * data.payMoney);
+                }
+            })
+        })
+    function totalUpdate(){
+        $(".total").html($(".rewardNumber").val()*$(".payMoney").html());
+    }
+
+    function account() {
+            if(confirm("确定提交订单")){
+                alert("订单提交成功");
+                setTimeout("window.location.href='projects.html'",3000);
+
+            }
+
+    }
+
 	</script>
   </body>
 </html>

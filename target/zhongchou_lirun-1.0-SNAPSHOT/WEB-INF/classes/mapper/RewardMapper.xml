@@ -11,4 +11,8 @@
     <select id="selectAllReward" parameterType="String" resultType="com.xian.reward.pojo.Reward">
         select * from reward where applyProjectName=#{applyProjectName}
     </select>
+    <!--根据id查询回报信息-->
+    <select id="selectRewardById" parameterType="Integer" resultType="com.xian.reward.pojo.Reward">
+        select * from reward where rewardId=#{rewardId}
+    </select>
 </mapper>

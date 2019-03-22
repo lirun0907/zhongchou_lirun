@@ -16,5 +16,13 @@
     <update id="updateApplyProjectById" parameterType="com.xian.applyproject.pojo.ApplyProject">
         update applyproject set projectStatus=#{projectStatus} where applyProjectId=#{applyProjectId}
     </update>
+    <!--根据审核状态查询已通过的所有项目-->
+    <select id="selectApplyProjectByStatus" resultType="com.xian.applyproject.pojo.ApplyProject">
+        select * from applyproject where projectStatus='审核通过'
+    </select>
+    <!--根据id查询筹资项目-->
+    <select id="selectApplyProjectByApplyProjectId" resultType="com.xian.applyproject.pojo.ApplyProject" parameterType="Integer">
+        select * from applyproject where applyProjectId=#{applyProjectId}
+    </select>
 
 </mapper>
