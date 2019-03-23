@@ -53,6 +53,7 @@ public class RealNameController {
     /*根据id修改状态*/
     @RequestMapping("updateRealNameById")
     public Object updateRealNameById(@RequestBody RealName realName){
+        System.out.println(realName);
         return realNameService.updateRealNameById(realName);
     }
     /*根据account查询资质认真状态*/

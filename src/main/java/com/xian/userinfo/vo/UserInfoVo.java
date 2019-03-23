@@ -17,7 +17,7 @@ public class UserInfoVo implements Serializable{
         String password;
         @NotBlank
         String type;
-        String status = "normal";
+        String status = "正常";
 
     public String getStatus() {
         return status;

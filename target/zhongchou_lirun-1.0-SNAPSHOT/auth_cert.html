@@ -229,7 +229,7 @@
 				type:"POST",
 				success:function (data) {
 					$.each(data,function (index,element) {
-						var status = element.status;
+						// var status = element.status;
 						var stu="<tr><td class='realNameId'>"+element.realNameId+"</td><td>"+element.processName+"</td>" +
 								"<td>"+element.account+"</td><td>"+element.realName+"</td>" +
 								"<td>"+element.idCard+"</td><td>"+element.tel+"</td><td data-toggle=\"modal\" data-target=\"#myModal\" onclick='getIdPhoto("+JSON.stringify(element.idPhoto)+")'><a>查看</a></td>" +
@@ -242,20 +242,21 @@
 						// 	"<option>未审核</option>"+
 						// "</select></td>" +
 						$("#tbody").append(stu);
-						$(".status").val(status);
+						// $(".status").val(status);
 					})
 				}
 			})
 
 			function getIdPhoto(idPhoto) {
 				idPhoto = idPhoto.split("webapp\\")[1];
+				alert(idPhoto);
 				$("#idPhoto").attr("src",idPhoto);
 			}
 			function updateRealNameStatus(element) {
 				// alert(realName.realNameId);
 				// alert(realName.status);
 				// alert(x.parentNode.parentNode.rowIndex);
-				if(element.status=="未审核"){
+				if(element.status=="待审核"){
 					status = "审核通过";
 					if(confirm("确定通过?")){
 						$.ajax({

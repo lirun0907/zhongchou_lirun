@@ -425,7 +425,7 @@
                 async: false,
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
-                data:JSON.stringify({"applyProjectName":"电子手表"}),
+                data:JSON.stringify({"applyProjectName":applyProjectName}),
                 success: function (data) {
                     $.each(data,function (index,element) {
                         var stu="<tr><td class='rewardId'>"+element.rewardId+"</td><td>"+element.applyProjectName+"</td>" +

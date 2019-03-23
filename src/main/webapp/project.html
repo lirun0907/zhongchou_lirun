@@ -65,7 +65,7 @@
             <div id="navbar" class="navbar-collapse collapse" style="float:right;">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> 张三<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <span class="account"></span><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="member.html"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
@@ -95,7 +95,7 @@
                                     <a rel="nofollow" href="projects.html"><i class="glyphicon glyphicon-th-large"></i> 众筹项目</a>
                                 </li>
                                 <li>
-                                    <a rel="nofollow" class="status"><i class="glyphicon glyphicon-edit"></i> 发起众筹</a>
+                                    <a rel="nofollow" onclick="checkStatus()"><i class="glyphicon glyphicon-edit"></i> 发起众筹</a>
                                 </li>
                                 <li>
                                     <a rel="nofollow" href="minecrowdfunding.html"><i class="glyphicon glyphicon-user"></i> 我的众筹</a>
@@ -151,7 +151,7 @@
                                     <!--<p>剩余 15 天</p>-->
                                     <div>
                                         <!--<p><span>已有629人支持该项目</span></p>-->
-                                     <button type="button" class="btn  btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal">立即支持</button>
+                                     <button type="button" class="btn  btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal" onclick="getAllRewardByApplyProjectName()">立即支持</button>
                                     </div>
                                 </div>
                                 <div class="panel-footer" style="    background-color: #fff;
@@ -338,26 +338,31 @@
         $(".prjtip img").click(function(){
             window.location.href = 'project.html';
         });
+        var status;
         $(function () {
             $.ajax({
                 type: "POST",
                 url: "selectRealNameStatus",
                 async: false,
                 success: function (message) {
-                    if(message.status=="待审核"){
-                        alert("您未实名认证");
-                        window.location.href="apply.html";
-                    }else {
-                        window.location.href="start.html"
-                    }
+                    status=message.status;
                 },
                 error: function () {
-                    alert("请求失败");
+                    // alert("请求失败");
                 }
             });
         })
+        function checkStatus() {
+            if(status=="待审核"||status==""){
+                alert("您还没有实名认证，请进行实名认证");
+                window.location.href="apply.html";
+            }else {
+                window.location.href="start.html";
+            }
+        }
         var applyProjectId = window.location.search.split("=")[1];
         var account;
+
         var applyProjectName;
         $(function () {
             /*根据id查询项目*/
@@ -367,7 +372,9 @@
                 async:false,
                 success: function (data) {
                     account = data.account;
+                    $(".account").html(account);
                     applyProjectName=data.applyProjectName;
+                    /*带到下个页面*/
                     $.cookie("account",account);
                     $(".financingMoney").html(data.financingMoney);
                     $(".raiseMoney").html(data.raiseMoney);
@@ -376,7 +383,10 @@
                     $(".projectDetails").attr("src",data.projectDetails);
                 }
             });
-            /*根据项目名查询回报*/
+        })
+
+        /*根据项目名查询回报*/
+        function getAllRewardByApplyProjectName(){
             $.ajax({
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
@@ -390,21 +400,22 @@
                     var str1="";
                     var str2="";
                     $.each(data, function (index, element) {
-                    str1+="<li class=\"active\"><a href=\"#"+element.rewardId+"\">￥"+element.payMoney+"</a></li>";
+                        str1+="<li class=\"active\"><a href=\"#"+element.rewardId+"\">￥"+element.payMoney+"</a></li>";
 
-                    str2+="<h2 id=\""+element.rewardId+"\" style=\"border-bottom:1px dashed #ddd;\" >" +
-                        "<span style=\"font-size:20px;font-weight:bold;\">￥"+element.payMoney+"</span><span style=\"font-size:12px;margin-left:60px;\">单笔限购"+element.limitNumber+"</span>" +
-                        "</h2><p>配送费用："+element.freight+"</p> <p>预计发放时间：项目筹款成功后的"+element.rewardTime+"天内</p> " +
-                        "<button type=\"button\" class=\"btn  btn-warning btn-lg\" onclick='pay("+element.rewardId+")'>支持</button> " +
-                        "<br><br> <p>"+element.rewardContent+"</p> <hr>";
+                        str2+="<h2 id=\""+element.rewardId+"\" style=\"border-bottom:1px dashed #ddd;\" >" +
+                            "<span style=\"font-size:20px;font-weight:bold;\">￥"+element.payMoney+"</span><span style=\"font-size:12px;margin-left:60px;\">单笔限购"+element.limitNumber+"</span>" +
+                            "</h2><p>配送费用："+element.freight+"</p> <p>预计发放时间：项目筹款成功后的"+element.rewardTime+"天内</p> " +
+                            "<button type=\"button\" class=\"btn  btn-warning btn-lg\" onclick='pay("+element.rewardId+")'>支持</button> " +
+                            "<br><br> <p>"+element.rewardContent+"</p> <hr>";
                     });
                     $(".rewardItem").append(str1);
                     $(".rewardDetail").append(str2);
                 }
             });
-        })
+        }
 
         function pay(rewardId) {
+            $.cookie("applyProjectId",applyProjectId);
             // alert(rewardId);
             window.location.href="pay-step-1.html?rewardId="+rewardId;
 

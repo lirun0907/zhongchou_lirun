@@ -12,9 +12,18 @@
     <select id="getAllApplyProject" resultType="com.xian.applyproject.pojo.ApplyProject">
         select * from applyproject
     </select>
-    <!--修改-->
+    <!--修改状态-->
     <update id="updateApplyProjectById" parameterType="com.xian.applyproject.pojo.ApplyProject">
-        update applyproject set projectStatus=#{projectStatus} where applyProjectId=#{applyProjectId}
+        update applyproject
+        <set>
+            <if test="projectStatus!=null and projectStatus!=''" >
+                projectStatus=#{projectStatus},
+            </if>
+            <if test="raiseMoney!=null and raiseMoney!=''" >
+                raiseMoney=#{raiseMoney},
+            </if>
+        </set>
+        where applyProjectId=#{applyProjectId}
     </update>
     <!--根据审核状态查询已通过的所有项目-->
     <select id="selectApplyProjectByStatus" resultType="com.xian.applyproject.pojo.ApplyProject">

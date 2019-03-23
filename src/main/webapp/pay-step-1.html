@@ -194,7 +194,7 @@
                                     </table>
                                     <div style="float:right;">
                                     <p>总价(含运费)：<span style="font-size:16px;color:#F60;" class="total">￥1.00</span></p>
-                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="account()"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
+                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="accountss()"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
                                     </div>
                                 </div>
                                 
@@ -253,7 +253,9 @@
           e.preventDefault()
           $(this).tab('show')
         })
-        $(".account").html($.cookie("account"));
+        var account = $.cookie("account");
+        $(".account").html(account);
+        var applyProjectId = $.cookie("applyProjectId");
         $(function () {
             var rewardId = window.location.search.split("=")[1];
             $.ajax({
@@ -261,23 +263,44 @@
                 url: "selectRewardById?rewardId=" + rewardId,
                 async: false,
                 success: function (data) {
+                    // applyProjectName = data.applyProjectName;
                     $(".applyProjectName").html(data.applyProjectName);
                     $(".rewardContent").html(data.rewardContent);
                     $(".rewardNumber").val(data.rewardNumber);
                     $(".payMoney").html(data.payMoney);
                     $(".freight").html(data.freight);
+                    var freight = Number(data.freight);
                     $(".rewardContent").html(data.rewardContent);
-                    $(".total").html(data.rewardNumber * data.payMoney);
+                    $(".total").html(data.rewardNumber * data.payMoney+freight);
                 }
-            })
+            });
         })
     function totalUpdate(){
-        $(".total").html($(".rewardNumber").val()*$(".payMoney").html());
+        $(".total").html($(".rewardNumber").val()*$(".payMoney").html()+Number($(".freight").html()));
     }
 
-    function account() {
+    function accountss() {
+            var raiseMoney = $(".total").html();
+            alert(raiseMoney);
         if(confirm("确定提交订单")){
-            alert("订单提交成功");
+            alert(applyProjectId);
+            /*发起ajax请求改变项目的已筹资金额*/
+            $.ajax({
+                type: "POST",
+                url: "updateApplyProjectPayMoneyById",
+                data:JSON.stringify({"applyProjectId":applyProjectId,"raiseMoney":raiseMoney}),
+                async: false,
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if(data==1){
+                        alert("订单提交成功");
+                    }else {
+                        alert("提交失败");
+                    }
+
+                }
+            });
             setTimeout("window.location.href='projects.html'",3000);
         }
     }

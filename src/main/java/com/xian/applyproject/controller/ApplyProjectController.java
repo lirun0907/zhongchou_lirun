@@ -31,6 +31,19 @@ public class ApplyProjectController {
     public Object updateApplyProjectById(@RequestBody ApplyProject applyProject) {
         return applyProjectService.updateApplyProjectById(applyProject);
     }
+
+    /*修改筹资金额*/
+    @RequestMapping("updateApplyProjectPayMoneyById")
+    public Object updateApplyProjectPayMoneyById(@RequestBody ApplyProject applyProject) {
+        System.out.println(applyProject);
+        ApplyProject applyProject1 = applyProjectService.selectApplyProjectByApplyProjectId(applyProject.getApplyProjectId());
+        Integer money = applyProject.getRaiseMoney();
+        Integer raiseMoney = applyProject1.getRaiseMoney();
+        Integer raiseMoney1 = money+raiseMoney;
+        applyProject1.setRaiseMoney(raiseMoney1);
+        System.out.println(applyProject1);
+        return applyProjectService.updateApplyProjectById(applyProject1);
+    }
     /*根据审核状态查询已通过的所有项目*/
     @RequestMapping("selectApplyProjectByStatus")
     public Object selectApplyProjectByStatus() {

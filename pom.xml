@@ -159,6 +159,12 @@
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
         </dependency>-->
+        <!-- 邮箱收验证码 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
+        </dependency>
     </dependencies>
 
 
