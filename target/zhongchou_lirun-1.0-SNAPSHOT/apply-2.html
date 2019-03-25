@@ -60,10 +60,10 @@
 		<form role="form" style="margin-top:20px;">
 		  <div class="form-group">
 			<label for="exampleInputEmail1">邮箱地址</label>
-			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用于接收验证码的邮箱地址">
+			<input type="text" class="form-control email" id="exampleInputEmail1" placeholder="请输入用于接收验证码的邮箱地址">
 		  </div>
           <button type="button" onclick="window.location.href='apply-1.html'" class="btn btn-default">上一步</button>
-		  <button type="button" onclick="window.location.href='apply-3.html'"  class="btn btn-success">下一步</button>
+		  <button type="button" onclick="getEmail()"  class="btn btn-success">下一步</button>
 		</form>
 		<hr>
     </div> <!-- /container -->
@@ -83,13 +83,34 @@
             </div>
         </div>
     <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="jquery/jquery.cookie.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="script/docs.min.js"></script>
 	<script>
         $('#myTab a').click(function (e) {
           e.preventDefault()
           $(this).tab('show')
-        });        
+        });
+        function getEmail() {
+            var email = $(".email").val();
+            $.cookie("email",email);
+            alert("页面"+email);
+            $.ajax({
+                type: "POST",
+                url: "sendEmailCode?email="+email,
+                success: function (data) {
+                    if(data){
+                        window.location.href="apply-3.html?data="+data;
+                    }else {
+
+                    }
+                },
+                error:function () {
+                    alert("请求失败");
+                }
+            })
+
+        }
 	</script>
   </body>
 </html>

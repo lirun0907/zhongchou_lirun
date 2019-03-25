@@ -60,10 +60,10 @@
 		<form role="form" style="margin-top:20px;">
 		  <div class="form-group">
 			<label for="exampleInputEmail1">验证码</label>
-			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入你邮箱中接收到的验证码">
+			<input type="text" class="form-control emailCode" id="exampleInputEmail1" placeholder="请输入你邮箱中接收到的验证码">
 		  </div>
-          <button type="button" onclick="javascript:;" class="btn btn-primary">重新发送验证码</button>
-		  <button type="button" onclick="window.location.href='member.html'"  class="btn btn-success">申请完成</button>
+          <button type="button" onclick="checkAgain()" class="btn btn-primary code">重新发送验证码</button>
+		  <button type="button" onclick="checkEmailCode()"  class="btn btn-success">申请完成</button>
 		</form>
 		<hr>
     </div> <!-- /container -->
@@ -83,13 +83,74 @@
             </div>
         </div>
     <script src="jquery/jquery-2.1.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+ <script src="jquery/jquery.cookie.js"></script>
+ <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="script/docs.min.js"></script>
 	<script>
         $('#myTab a').click(function (e) {
           e.preventDefault()
           $(this).tab('show')
-        });        
+        });
+        var random = window.location.href.split("=")[1];
+        alert("随机码"+random);
+        /*申请完成*/
+        function checkEmailCode() {
+
+            var randomCode = $(".emailCode").val();
+            if(random==randomCode){
+                $.ajax({
+                    type: "POST",
+                    url: "addRealName",
+                    success: function (data) {
+                        if(data==1){
+                            alert("申请成功");
+                            window.location.href="member.html"
+                        }
+                    },
+                    error:function () {
+                        alert("请求失败");
+                    }
+                });
+            }else {
+                alert("验证码不正确");
+            }
+        }
+
+        var email = $.cookie("email");
+        alert("cookie中的"+email);
+        /*重发验证码*/
+        function checkAgain() {
+            time();
+            $.ajax({
+                type: "POST",
+                url: "sendEmailCode?email="+email,
+                success: function (data) {
+                    if(data){
+                        alert("重发验证码"+data);
+                        random=data;
+                    }
+                },
+                error:function () {
+                    alert("请求失败");
+                }
+             });
+        }
+        //验证码倒计时
+        var countdown = 60;
+        function time() {
+            if (countdown == 0) {
+                $(".code").removeAttr("disabled");
+                $(".code").html("免费获取验证码");
+                countdown = 60;
+                return;
+            } else {
+                $(".code").attr("disabled", true);
+                $(".code").html("重新发送(" + countdown + ")");
+                countdown--;
+            }
+            setTimeout(function () {time()}, 1000)
+        }
+
 	</script>
   </body>
 </html>
