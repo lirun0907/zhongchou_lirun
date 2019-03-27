@@ -4,7 +4,6 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class EmailUtils {
     public static void main(String[] args){
@@ -21,8 +20,8 @@ public class EmailUtils {
             email.setFrom("lirun0907@163.com","李润");
             email.setAuthentication("lirun0907@163.com","lirun0907");
             email.setSubject("测试");
-//            email.setMsg(random.toString());
-            email.setMsg("叼毛，这是我用代码给你发的邮件,嘿嘿");
+            email.setMsg(random.toString());
+//            email.setMsg("叼毛，这是我用代码给你发的邮件,嘿嘿");
 
             email.send();
         } catch (EmailException e) {
