@@ -1,4 +1,5 @@
 com\xian\menu\controller\MenuController.class
+com\xian\utils\EmailUtils.class
 com\xian\roleinfo\mapper\RoleInfoMapper.class
 com\xian\applyproject\service\impl\ApplyProjectServiceImpl.class
 com\xian\qualification\service\impl\QuaServiceImpl.class

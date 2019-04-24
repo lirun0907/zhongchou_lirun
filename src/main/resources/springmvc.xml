@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<!--配置业务控制器的 扫描路径 -->
 	<context:component-scan base-package="com.xian.*.controller"></context:component-scan>
-	<!-- 静态资源 处理 -->
+	<!-- 静态资源处理 -->
 	<mvc:default-servlet-handler />
 	<!--配置注解驱动 -->
 	<mvc:annotation-driven>

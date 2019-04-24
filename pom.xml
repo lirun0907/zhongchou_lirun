@@ -8,6 +8,24 @@
     <groupId>com.xian</groupId>
     <artifactId>zhongchou_lirun</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://10.12.151.14:8080/manager/text</url>
+
+                    <username>admin</username>
+                    <password>password</password>
+                    <ignorePackaging>true</ignorePackaging>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
     <!--打包Java web项目到服务器-->
     <packaging>war</packaging>

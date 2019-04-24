@@ -27,6 +27,7 @@ E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\userinfo\service\UserService.j
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\menu\mapper\MenuMapper.java
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\applyproject\service\impl\ApplyProjectServiceImpl.java
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\reward\service\impl\RewardServiceImpl.java
+E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\utils\EmailUtils.java
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\userinfo\controller\UserInfoController.java
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\userinfo\vo\UserInfoVo.java
 E:\ideaprj\zhongchou_lirun\src\main\java\com\xian\realname\pojo\RealName.java
